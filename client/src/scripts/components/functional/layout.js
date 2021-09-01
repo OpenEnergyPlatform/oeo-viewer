@@ -292,6 +292,9 @@ class Layout extends Component {
     const allLinks = GraphData.links;
     const allNodes = GraphData.nodes;
 
+    const classIDFromURL = window.location.href.split('/').pop();
+    const requestedNode = allNodes.find(node => node.id === classIDFromURL);
+
     let treeData = [];
     allLinks.forEach(link => {
       const targetName = allNodes.find(node => node.id === link.target);
@@ -326,30 +329,47 @@ class Layout extends Component {
     }
 
     const rootNode = allNodes.find(node => node.id === 'BFO_0000001');
-    const filteredNodes = [rootNode];
+    const nodeToStart =  requestedNode !== undefined ? requestedNode :rootNode
+    const filteredNodes = [nodeToStart];
     const filteredLinks = [];
 
     allLinks.forEach(link => {
       if ((typeof link.source) === 'object') {
-        if (link.source.id === rootNode.id) {
+        if (link.source.id === nodeToStart.id) {
           filteredLinks.push(link);
-          const rootNodeChild = allNodes.find(node => node.id === link.target.id);
-          filteredNodes.push(rootNodeChild);
+          const nodeToStartChild = allNodes.find(node => node.id === link.target.id);
+          filteredNodes.push(nodeToStartChild);
         }
       }
       else {
-        if (link.source === rootNode.id) {
+        if (link.source === nodeToStart.id) {
           filteredLinks.push(link);
-          const rootNodeChild = allNodes.find(node => node.id === link.target);
-          filteredNodes.push(rootNodeChild);
+          const nodeToStartChild = allNodes.find(node => node.id === link.target);
+          filteredNodes.push(nodeToStartChild);
         }
       }
     });
 
+    let allParents = [];
+    if (requestedNode !== undefined) {
+      const searchedNodeInTreeData = treeData.find(link => link.id === requestedNode.id);
+      (function traverseTreeBack(node = searchedNodeInTreeData) {
+          allParents.unshift(node.id);
+          if (node.id === 'BFO_0000001' || node.parent === 'BFO_0000001') return;
+          const parentNode = treeData.find(link => link.id === node.parent);
+          traverseTreeBack(parentNode);
+        })();
+
+      allParents.unshift('BFO_0000001');
+    }
+
+
+
+
     this.setState({
       treeViewData: treeViewData,
-      currentNodeAllParents: ['Entity'],
-      currentNode: rootNode,
+      currentNodeAllParents: requestedNode !== undefined ? allParents : ['Entity'],
+      currentNode: nodeToStart,
       ontologyData: {
         'links': filteredLinks,
         'nodes': filteredNodes
