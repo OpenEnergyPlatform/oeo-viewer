@@ -1,11 +1,13 @@
 {
-  "name": "ween",
-  "version": "1.0.0",
+  "name": "oeo-viewer",
+  "private": true,
+  "version": "0.0.0",
   "description": "Advanced Graph Visualization.",
   "main": "index.js",
   "scripts": {
     "dev": "node dev-server.js",
-    "build": "parcel build src/index.html --out-dir prod"
+    "build": "parcel build src/index.html --out-dir dist",
+    "build:oep": "parcel build src/index.html --public-url=/static --out-dir dist_oep"
   },
   "keywords": [
     "Graph"

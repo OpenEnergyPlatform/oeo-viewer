@@ -1,0 +1,27 @@
+name: Build Artifacts
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: npm ci && build
+        run: |
+          cd client
+          npm ci
+          npm run build:oep
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist_oep
+          path: |
+            ./client/dist_oep
