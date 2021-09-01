@@ -15,9 +15,10 @@ jobs:
         with:
           node-version: '14'
       - name: npm ci && build
+      # We should replace npm install with npm ci.
         run: |
           cd client
-          npm ci
+          npm install
           npm run build:oep
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
