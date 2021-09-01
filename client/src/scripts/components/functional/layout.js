@@ -185,16 +185,22 @@ class Layout extends Component {
     allLinks.forEach(link => {
       if ((typeof link.target) === 'object') {
         if (link.target.id === currentNode.id) {
-          visibleLinks.push(link);
-          const currentNodeParent = allNodes.find(node => node.id === link.source.id);
-          visibleNodes.push(currentNodeParent);
+          const linkExist = visibleLinks.find(l => (l.source.id === link.source.id && l.target.id === link.target.id)) !== undefined;
+          if (!linkExist) {
+            visibleLinks.push(link);
+            const currentNodeParent = allNodes.find(node => node.id === link.source.id);
+            visibleNodes.push(currentNodeParent);
+          }
         }
       }
       else {
         if (link.target === currentNode.id) {
-          visibleLinks.push(link);
-          const currentNodeParent = allNodes.find(node => node.id === link.source);
-          visibleNodes.push(currentNodeParent);
+          const linkExist = visibleLinks.find(l => (l.id === link.source)) !== undefined;
+          if (!linkExist) {
+            visibleLinks.push(link);
+            const currentNodeParent = allNodes.find(node => node.id === link.source);
+            visibleNodes.push(currentNodeParent);
+          }
         }
       }
     });
