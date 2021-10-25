@@ -50,8 +50,8 @@ class Layout extends Component {
     window.addEventListener('resize', this.updateWindowDimensions);
     this.fgRef.current.d3Force("center", d3.forceCenter(50, 50));
     this.fgRef.current.d3Force("collide", d3.forceCollide().radius(30));
-    this.fgRef.current.d3Force("charge").strength(-400);
-    this.fgRef.current.d3Force("charge", d3.forceManyBody().strength(-20))
+    this.fgRef.current.d3Force("charge").strength(-40);
+    this.fgRef.current.d3Force("charge", d3.forceManyBody().strength(-2))
     //this.fgRef.current.d3Force("link").distance(link => link.value);
     //this.fgRef.current.d3Force("link").distance(40);
     //this.fgRef.current.d3Force('collision', d3.forceCollide(100));
@@ -67,8 +67,8 @@ class Layout extends Component {
 
   updateWindowDimensions() {
   this.setState({
-    width: window.innerWidth / 1.4 ,
-    height: window.innerHeight / 1.8
+    width: window.innerWidth / 1.23 ,
+    height: window.innerHeight / 1.4
   });
   }
 
@@ -563,7 +563,7 @@ class Layout extends Component {
           justifyContent="center"
           //alignItems="stretch"
           spacing={2}>
-              <Grid item xs={3}>
+              <Grid item xs={2}>
                   <div>
                       <BaseCard
                         content={<CustomTreeView
@@ -574,7 +574,7 @@ class Layout extends Component {
                       />
                   </div>
               </Grid>
-              <Grid item xs={9} >
+              <Grid item xs={10} >
                 <Grid
                   container
                   direction="column"

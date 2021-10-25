@@ -105,8 +105,7 @@ export default function LayoutActions(props) {
     HierarchicalViewHandler,
     searchHandler
   } = props;
-  console.log(viewAll);
-  console.log(search);
+
   return (
       <div>
         <Grid container
@@ -167,10 +166,10 @@ export default function LayoutActions(props) {
                       </DarkGreenButton>}
                     </ButtonGroup>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={1}>
                   {hierarchicalView && <CustomSwitch toggleRenderMode={HierarchicalViewHandler}/>}
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={5}>
                   {search && <CustomSearchInput searchHandler={searchHandler} />}
                 </Grid>
         </Grid>

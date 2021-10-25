@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     backgroundColor: "#f7f7f7",
     borderColor: "#00688B",
     overflow: "auto",
-    height: "400px",
+    height: "180px",
   },
   bullet: {
     display: "inline-block",
@@ -37,43 +37,26 @@ export default function SimpleCard(props) {
   const classes = useStyles();
   return (
       <Card className={classes.root} variant="outlined">
-          <CardContent>
-            <Typography color="textSecondary">
-              Name:
+        <CardContent>
+            <Typography variant="body1" >
+              <p style={{ display: 'inline', color: 'DarkGray' }}>Name:</p> {nodeInfo.name} &nbsp;&nbsp;
+              <p style={{ display: 'inline', color: 'DarkGray' }}>ID:</p> {nodeInfo.id}
             </Typography>
-            <Typography variant="h5" component="h2">
-              {nodeInfo.name}
-            </Typography>
-            <br/>
-            <Typography  color="textSecondary">
-              ID:
-            </Typography>
-            <Typography variant="h5" component="h2">
-              {nodeInfo.id}
-            </Typography>
-            <br/>
             {
               nodeInfo.description != undefined && nodeInfo.description.length != 0 ?
                   <div>
-                    <Typography className={classes.pos} color="textSecondary">
-                        Definition:
-                      </Typography>
-                      <Typography variant="body1" component="p">
-                        {nodeInfo.description}
-                      </Typography>
-                    </div>
+                    <Typography variant="body1" component="p">
+                        <p style={{ display: 'inline', color: 'DarkGray' }}>Definition:</p> {nodeInfo.description}
+                    </Typography>
+                  </div>
                   :null
             }
-            <br/>
             {
               nodeInfo.editor_note != undefined && nodeInfo.editor_note.length != 0 ?
                   <div>
-                    <Typography className={classes.pos} color="textSecondary">
-                        Editor's note:
-                      </Typography>
-                      <Typography variant="body1" component="p">
-                        {nodeInfo.editor_note}
-                      </Typography>
+                    <Typography variant="body1" component="p">
+                      <p style={{ display: 'inline', color: 'DarkGray' }}>Editor's note:</p>  {nodeInfo.editor_note}
+                    </Typography>
                   </div>
                   :null
             }
