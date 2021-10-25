@@ -1,6 +1,6 @@
 # oeo-viewer
 
-1- To build and create the minimized version, run:
+1- To create the minimized version, run:
 `npm run build`
 
 This will generate a series of files inside the `dist` folder. 
