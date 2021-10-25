@@ -68,7 +68,7 @@ class Layout extends Component {
   updateWindowDimensions() {
   this.setState({
     width: window.innerWidth / 1.23 ,
-    height: window.innerHeight / 1.4
+    height: window.innerHeight / 1.8
   });
   }
 
