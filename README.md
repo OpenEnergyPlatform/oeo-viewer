@@ -1,5 +1,12 @@
 # oeo-viewer
 
-To update the deployed version within the OpenEnergy platform, you have to take a the artefacts and copy them over into the `oeo-viewer` directory in the OpenEnergy platform. `index.html` does into the `template` folder, the rest of the files goes into the `static` folder. 
+1- To build and create the minimized version, run:
+`npm run build`
 
-Note: This will change in the future. 
+This will generate a series of files inside the `dist` folder. 
+
+2- To update the OpenEnergy platform, copy all generated files inside the `dist` folder and copy them over into the `oeo-viewer/static` directory in the OpenEnergy platform.
+
+Done!
+
+
