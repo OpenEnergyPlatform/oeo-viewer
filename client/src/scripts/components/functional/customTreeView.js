@@ -45,7 +45,7 @@ class CustomTreeView extends Component {
     </TreeItem>
     );
     return (
-        <div style={{ height: '75%', maxHeight: '800px' }}>
+        <div style={{ height: '75%', maxHeight: '700px' }}>
           <TreeView
             defaultCollapseIcon={<ExpandMoreIcon />}
             defaultExpandIcon={<ChevronRightIcon />}

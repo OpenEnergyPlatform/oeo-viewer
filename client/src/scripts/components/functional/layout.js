@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from "react";
 import ForceGraph3D from "react-force-graph-3d";
 import ForceGraph2D from "react-force-graph-2d";
-import GraphData from "../../../statics/oeo_info.json";
+import GraphData from "../../../statics/oeo_info_1_8.json";
 import SpriteText from "three-spritetext";
 import CustomDialog from "../presentational/customDialog";
 import CustomMenu from "../presentational/customMenu";
@@ -181,6 +181,7 @@ class Layout extends Component {
     const visibleLinks = this.state.ontologyData.links;
     const visibleNodes = this.state.ontologyData.nodes;
     const currentNode = this.state.currentNode;
+
 
     allLinks.forEach(link => {
       if ((typeof link.target) === 'object') {
@@ -563,7 +564,7 @@ class Layout extends Component {
           justifyContent="center"
           //alignItems="stretch"
           spacing={2}>
-              <Grid item xs={2}>
+              <Grid item xs={3}>
                   <div>
                       <BaseCard
                         content={<CustomTreeView
@@ -573,8 +574,17 @@ class Layout extends Component {
                         />}
                       />
                   </div>
+                  <div style={{ padding: "15px" }}>
+                  If you find bugs or if you have ideas to improve the Open Energy Platform, you are welcome to add your comments to the existing issues on
+                  <a href="https://github.com/OpenEnergyPlatform/oeplatform"> GitHub. </a>
+                  </div>
+
+                  <div style={{ padding: "15px" }}>
+                  You can also fork the project and get involved.
+                  Please note that the platform is still under construction and therefore the design of this page is still highly volatile!
+                  </div>
               </Grid>
-              <Grid item xs={10} >
+              <Grid item xs={9} >
                 <Grid
                   container
                   direction="column"
