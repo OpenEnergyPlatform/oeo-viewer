@@ -1,5 +1,7 @@
 # oeo-viewer
 
+To run the oeo-viewer, first run `npm install` and then run `node dev-server.js`
+
 1- To create the minimized version, inside the `client` folder, run: `npm run build` This will generate a series of files inside the `dist` folder. If the `dist`
  folder contains the files from a previous build command, remove them (`rm *.*`)  before running a new build.
  
