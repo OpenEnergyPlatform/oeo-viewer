@@ -22,4 +22,6 @@
 
 3- To build the minimized version:
     
-    npm build
+    npm run build
+    
+This will generate a series of files inside the `dist` folder. If the `dist` folder contains the files from a previous build command, remove them before running a new build.
