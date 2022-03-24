@@ -19,7 +19,7 @@ const parcelEnd = {
 const options = {};
 
 // point parcel at its "input"
-const entryFiles = Path.join(__dirname, "src", "index.html");
+const entryFiles = Path.join(__dirname, "source-code", "index.html");
 
 // init the bundler
 const bundler = new Bundler(entryFiles, options);
