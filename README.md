@@ -1,4 +1,4 @@
-# oeo-viewer
+# OEO-Viewer
 
 ![example1](<./screenshots/oeo-viewer-screenshot-1.png>) 
 ![example2](<./screenshots/oeo-viewer-screenshot-2.png>) 
