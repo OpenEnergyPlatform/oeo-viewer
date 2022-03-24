@@ -1,9 +1,9 @@
 # oeo-viewer
 
-![example1](<./screenshots/oeo-viewer-screenshot-1.png.png>) 
-![example2](<./screenshots/oeo-viewer-screenshot-2.png.png>) 
-![example3](<./screenshots/oeo-viewer-screenshot-3.png.png>) 
-![example4](<./screenshots/oeo-viewer-screenshot-4.png.png>) 
+![example1](<./screenshots/oeo-viewer-screenshot-1.png>) 
+![example2](<./screenshots/oeo-viewer-screenshot-2.png>) 
+![example3](<./screenshots/oeo-viewer-screenshot-3.png>) 
+![example4](<./screenshots/oeo-viewer-screenshot-4.png>) 
 
 1- Install npm:
 
