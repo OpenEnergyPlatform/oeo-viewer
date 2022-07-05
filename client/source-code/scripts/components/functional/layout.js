@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from "react";
 import ForceGraph3D from "react-force-graph-3d";
 import ForceGraph2D from "react-force-graph-2d";
-import GraphData from "../../../statics/oeo_info_1_10.json";
+import GraphData from "../../../statics/oeo_info.json";
 import SpriteText from "three-spritetext";
 import CustomDialog from "../presentational/customDialog";
 import CustomMenu from "../presentational/customMenu";
@@ -39,6 +39,7 @@ class Layout extends Component {
     openSettingDialog: false,
     currentNode: "",
     hierarchicalView: true,
+    cooldownTicks: 1000
   };
 
   componentWillMount() {
@@ -116,6 +117,7 @@ class Layout extends Component {
     this.setState({
       currentNode: node,
       currentNodeAllParents: allParents,
+      cooldownTicks: 5,
     });
   };
 
@@ -587,7 +589,9 @@ class Layout extends Component {
               dagLevelDistance={50}
               // d3VelocityDecay={0.001}
               // dagLevelDistance={200}
-              cooldownTicks={100}
+              cooldownTicks={this.state.cooldownTicks}
+              d3VelocityDecay={0.01}
+              cooldownTime={1000}
               onNodeDragEnd={node => {
                 node.fx = node.x;
                 node.fy = node.y;
@@ -601,6 +605,7 @@ class Layout extends Component {
   }
 
   render() {
+      console.log(this.state.cooldownTicks);
       return (
         <div>
         <Grid
