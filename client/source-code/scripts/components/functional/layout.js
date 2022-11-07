@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from "react";
 import ForceGraph3D from "react-force-graph-3d";
 import ForceGraph2D from "react-force-graph-2d";
-import GraphData from "../../../statics/oeo_info.json";
+import GraphData from "../../../statics/oeo_info_1_12_0.json";
 import SpriteText from "three-spritetext";
 import CustomDialog from "../presentational/customDialog";
 import CustomMenu from "../presentational/customMenu";
@@ -605,7 +605,6 @@ class Layout extends Component {
   }
 
   render() {
-      console.log(this.state.cooldownTicks);
       return (
         <div>
         <Grid
