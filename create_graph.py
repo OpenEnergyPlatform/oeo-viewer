@@ -3,7 +3,7 @@ from collections import defaultdict
 import json
 
 g = Graph()
-g.parse("./oeo/oeo-full.owl")
+g.parse("./oeo/1.12.0.owl")
 
 q_global = g.query("""
     SELECT DISTINCT ?s ?o
@@ -94,7 +94,7 @@ for row in q_global:
     except:
         pass
 
-with open('client/source-code/statics/oeo_info.json', 'w') as f:
+with open('./oeo_info_1_12_0.json', 'w') as f:
     json.dump({"nodes": graphNodes,
                 "links": graphLinks}, f)
 
