@@ -2,7 +2,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
-import GraphData from "../../../statics/oeo_info_1_12_0.json";
+import GraphData from "../../../statics/oeo_info_1_15_0.json";
 
 const filter = createFilterOptions();
 
