@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node dev-server.js",
-    "build": "cd .. && python create_graph.py && cd client && parcel build source-code/index.html --out-dir ../static && npm run build:clean",
-    "build:clean": "cd ../static && mv *.js main.js && mv *.css main.css"
+    "build": "cd .. && python create_graph.py && rm -r static && mkdir static && cd static && mkdir oeo_viewer && cd ../client && parcel build source-code/index.html --out-dir ../static/oeo_viewer && npm run build:clean",
+    "build:clean": "cd ../static/oeo_viewer && mv *.js main.js && mv *.css main.css"
   },
   "keywords": [
     "Graph"
