@@ -538,7 +538,7 @@ class Layout extends Component {
               var num_of_words = label.length;
 
               ctx.fillStyle =  node.id === this.state.currentNode.id ? "#78C1AE" :'#04678F';
-              ctx.fillRect(node.x - 1, node.y - 8, (num_of_words * 2.4) + 2 , 12); 
+              ctx.fillRect(node.x - 1, node.y - 8, (num_of_words * 2.4) + 4 , 12); 
 
               const fontSize = 5;
               ctx.font = `${fontSize}px Tahoma`;
@@ -566,8 +566,7 @@ class Layout extends Component {
 
               const textWidth = ctx.measureText(label).width;
               const bckgDimensions = [textWidth, fontSize].map(
-                n => n + fontSize * 6
-                ); // some padding
+                n => n + fontSize * 6); // some padding
                 node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
               }}
 
@@ -642,7 +641,7 @@ class Layout extends Component {
                 <div style={{ "padding": "15px 0px 0px 0px", "height": "60px" }}>
                   {<LayoutActions
                     annotate={false}
-                    viewAll={true}
+                    viewAll={false}
                     search={true}
                     hierarchicalView={true}
                     focusHandler={this.focusHandler}
