@@ -65,7 +65,7 @@ class Layout extends Component {
 
   updateWindowDimensions() {
   this.setState({
-    width: window.innerWidth / 1.23 ,
+    width: window.innerWidth / 1.42 ,
     height: window.innerHeight / 1.8
   });
   }
@@ -638,7 +638,7 @@ class Layout extends Component {
                   nodeInfo={this.state.currentNode}
                 />}
 
-                <div style={{ "padding": "15px 0px 0px 0px", "height": "60px" }}>
+                <div style={{ "padding": "15px 0px 0px 15px", "height": "60px" }}>
                   {<LayoutActions
                     annotate={false}
                     viewAll={false}
@@ -657,6 +657,7 @@ class Layout extends Component {
                     />}
                  </div>
                  <div style={{
+                     "width": "98%",
                      "borderStyle": "solid",
                      "borderWidth": "1px",
                      "backgroundColor": "#f7f7f7",

@@ -167,6 +167,9 @@ export default function LayoutActions(props) {
                           View All
                       </BlueButton>}
                       {hierarchicalView && <CustomSwitch toggleRenderMode={HierarchicalViewHandler}/>}
+                      <div style={{ marginLeft: '5px', marginTop: '15px' }}>
+                        Top-down view
+                      </div>
                     </ButtonGroup>
               </Grid>
         </Grid>
