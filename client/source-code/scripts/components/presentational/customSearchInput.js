@@ -59,10 +59,10 @@ export default function CustomSearchInput(props) {
         return option.name;
       }}
       renderOption={(option) => option.name}
-      style={{ width: "95%" }}
+      style={{ width: "98%" }}
       freeSolo
       renderInput={(params) => (
-        <TextField {...params} label="Search for OEO classes..." variant="outlined" size="small" />
+        <TextField {...params} label="" variant="outlined" size="small" />
       )}
     />
   );

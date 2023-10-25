@@ -6,6 +6,7 @@ import BaseCard from "../presentational/baseCard";
 import CustomCard from "../presentational/customCard";
 import CustomTreeView from "./customTreeView";
 import LayoutActions from "./actions.js";
+import SearchBox from "./searchBox";
 import Grid from "@material-ui/core/Grid";
 
 
@@ -34,7 +35,7 @@ class Layout extends Component {
   state = {
     openSettingDialog: false,
     currentNode: "",
-    hierarchicalView: false,
+    hierarchicalView: true,
     cooldownTicks: 1000
   };
 
@@ -521,53 +522,47 @@ class Layout extends Component {
 
         nodeCanvasObject={(node, ctx, globalScale) => {
               
-              //ctx.fillStyle = node.id === this.state.currentNode.id ? "#009688" :'#deeaee';
+            ctx.fillStyle = node.id === this.state.currentNode.id ? "#009688" :'#deeaee';
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, 18, 0, 2 * Math.PI);
+            ctx.stroke();
+            ctx.fill();
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillStyle =  node.id === this.state.currentNode.id ? "#ffffff" :'#034f84';
+            ctx.strokeStyle = "#00688B";
+            ctx.lineWidth = 2;
 
-              /* ctx.beginPath();
-              ctx.arc(node.x, node.y, 12, 0, 2 * Math.PI);
-              ctx.stroke();
-              ctx.fill();
+            const label = node.name;
+            var num_of_words = label.length;
+            var lines = label.split(" ");
 
-              ctx.textAlign = "center";
-              ctx.textBaseline = "middle";
-              ctx.fillStyle =  node.id === this.state.currentNode.id ? "#ffffff" :'#034f84';
-              ctx.strokeStyle = "#00688B";
-              ctx.lineWidth = 2; */
+              // ctx.fillStyle =  node.id === this.state.currentNode.id ? "#78C1AE" :'#04678F';
+              // ctx.fillRect(node.x - 2, node.y - 8, (num_of_words * 2.4) + 6 , 14); 
 
-              const label = node.name;
-              var num_of_words = label.length;
+            const fontSize = 5;
+            ctx.font = `bold ${fontSize}px Tahoma`;
+            ctx.fillStyle = node.id === this.state.currentNode.id ? '#ffffff' : "#04678F";
 
-              ctx.fillStyle =  node.id === this.state.currentNode.id ? "#78C1AE" :'#04678F';
-              ctx.fillRect(node.x - 1, node.y - 8, (num_of_words * 2.4) + 4 , 12); 
-
-              const fontSize = 5;
-              ctx.font = `${fontSize}px Tahoma`;
-              ctx.fillStyle = node.id === this.state.currentNode.id ? "#04678F" :'#ffffff';
-              ctx.fillText(label, node.x, node.y )
-              
-              
-
-              /* if (lines.length == 1) {
-                ctx.fillText(lines[0], node.x, node.y )
-              } else {
-                for (var i = 0; i<lines.length; i++) {
-                  if (i == 0) {
-                    ctx.fillText(lines[i], node.x, node.y - 8 );
-                  } else if (i == 1) {
-                    ctx.fillText(lines[i], node.x, node.y - 2 );
-                  } else if (i == 2) {
-                    ctx.fillText(lines[i], node.x, node.y + 4 );
-                  } else {
-                    ctx.fillText(lines[i], node.x, node.y + 10 );
-                  }
+            if (lines.length == 1) {
+              ctx.fillText(lines[0], node.x, node.y )
+            } else {
+              for (var i = 0; i<lines.length; i++) {
+                if (i == 0) {
+                  ctx.fillText(lines[i], node.x, node.y - 4 );
+                } else if (i == 1) {
+                  ctx.fillText(lines[i], node.x, node.y + 2 );
+                } else if (i == 2) {
+                  ctx.fillText(lines[i], node.x, node.y + 8 );
+                } else {
+                  ctx.fillText(lines[i], node.x, node.y + 14 );
                 }
-              } */
-
-
-              const textWidth = ctx.measureText(label).width;
-              const bckgDimensions = [textWidth, fontSize].map(
-                n => n + fontSize * 6); // some padding
-                node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
+              }
+            }
+            const textWidth = ctx.measureText(label).width;
+            const bckgDimensions = [textWidth, fontSize].map(
+              n => n + fontSize * 6); // some padding
+              node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
               }}
 
         nodePointerAreaPaint={(node, color, ctx) => {
@@ -634,10 +629,16 @@ class Layout extends Component {
                   direction="column"
                   justifyContent="center"
                 >
+                   <div>
+                  {<SearchBox
+                    searchHandler={this.searchHandler}
+                    />}
+                </div>
+               
                 {<CustomCard
                   nodeInfo={this.state.currentNode}
                 />}
-
+                
                 <div style={{ "padding": "15px 0px 0px 15px", "height": "60px" }}>
                   {<LayoutActions
                     annotate={false}
@@ -655,7 +656,8 @@ class Layout extends Component {
                     HierarchicalViewHandler={this.HierarchicalViewHandler}
                     searchHandler={this.searchHandler}
                     />}
-                 </div>
+                </div>
+
                  <div style={{
                      "width": "98%",
                      "borderStyle": "solid",
