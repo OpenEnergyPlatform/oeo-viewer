@@ -56,8 +56,8 @@ Installation
     :target: LICENSE.txt
     :alt: License
 
-.. |badge_documentation| image:: https://img.shields.io/github/actions/workflow/status/rl-institut/super-repo/gh-pages.yml?branch=production
-    :target: https://rl-institut.github.io/super-repo/
+.. |badge_documentation| image::
+    :target:
     :alt: Documentation
 
 .. |badge_contributing| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
@@ -69,14 +69,14 @@ Installation
 .. |badge_contributors| image:: https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square
     :alt: contributors
 
-.. |badge_issue_open| image:: https://img.shields.io/github/issues-raw/rl-institut/oeo-viewer
+.. |badge_issue_open| image:: https://img.shields.io/github/issues-raw/OpenEnergyPlatform/oeo-viewer
     :alt: open issues
 
-.. |badge_issue_closes| image:: https://img.shields.io/github/issues-closed-raw/rl-institut/oeo-viewer
+.. |badge_issue_closes| image:: https://img.shields.io/github/issues-closed-raw/OpenEnergyPlatform/oeo-viewer
     :alt: closes issues
 
-.. |badge_pr_open| image:: https://img.shields.io/github/issues-pr-raw/rl-institut/oeo-viewer
+.. |badge_pr_open| image:: https://img.shields.io/github/issues-pr-raw/OpenEnergyPlatform/oeo-viewer
     :alt: closes issues
 
-.. |badge_pr_closes| image:: https://img.shields.io/github/issues-pr-closed-raw/rl-institut/oeo-viewer
+.. |badge_pr_closes| image:: https://img.shields.io/github/issues-pr-closed-raw/OpenEnergyPlatform/oeo-viewer
     :alt: closes issues
