@@ -52,7 +52,7 @@ Installation
    This will generate a series of files inside the ``dist`` folder. If the ``dist`` folder contains the files from a previous build command, remove them before running a new build.
 
 
-.. |badge_license| image:: https://github.com/OpenEnergyPlatform/oeo-viewer/blob/harmonize-repo-structure/LICENSE.txt
+.. |badge_license| image:: https://img.shields.io/github/license/rl-institut/super-repo
     :target: LICENSE.txt
     :alt: License
 
@@ -63,20 +63,20 @@ Installation
 .. |badge_contributing| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
     :alt: contributions
 
-.. |badge_repo_counts| image:: http://hits.dwyl.com/rl-institut/super-repo.svg
+.. |badge_repo_counts| image:: http://hits.dwyl.com/rl-institut/oeo-viewer.svg
     :alt: counter
 
 .. |badge_contributors| image:: https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square
     :alt: contributors
 
-.. |badge_issue_open| image:: https://img.shields.io/github/issues-raw/rl-institut/super-repo
+.. |badge_issue_open| image:: https://img.shields.io/github/issues-raw/rl-institut/oeo-viewer
     :alt: open issues
 
-.. |badge_issue_closes| image:: https://img.shields.io/github/issues-closed-raw/rl-institut/super-repo
+.. |badge_issue_closes| image:: https://img.shields.io/github/issues-closed-raw/rl-institut/oeo-viewer
     :alt: closes issues
 
-.. |badge_pr_open| image:: https://img.shields.io/github/issues-pr-raw/rl-institut/super-repo
+.. |badge_pr_open| image:: https://img.shields.io/github/issues-pr-raw/rl-institut/oeo-viewer
     :alt: closes issues
 
-.. |badge_pr_closes| image:: https://img.shields.io/github/issues-pr-closed-raw/rl-institut/super-repo
+.. |badge_pr_closes| image:: https://img.shields.io/github/issues-pr-closed-raw/rl-institut/oeo-viewer
     :alt: closes issues
