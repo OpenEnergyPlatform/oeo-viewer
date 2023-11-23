@@ -7,6 +7,19 @@
 ==========
 OEO-Viewer
 ==========
+.. list-table::
+   :widths: auto
+
+   * - License
+     - |badge_license|
+   * - Documentation
+     - |badge_documentation|
+   * - Publication
+     -
+   * - Development
+     - |badge_issue_open| |badge_issue_closes| |badge_pr_open| |badge_pr_closes|
+   * - Community
+     - |badge_contributing| |badge_contributors| |badge_repo_counts|
 
 .. contents::
     :depth: 2
