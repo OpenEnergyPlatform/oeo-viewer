@@ -52,7 +52,7 @@ Installation
    This will generate a series of files inside the ``dist`` folder. If the ``dist`` folder contains the files from a previous build command, remove them before running a new build.
 
 
-.. |badge_license| image:: https://img.shields.io/github/license/rl-institut/oeo-viewer
+.. |badge_license| image:: https://github.com/OpenEnergyPlatform/oeo-viewer/blob/harmonize-repo-structure/LICENSE.txt
     :target: LICENSE.txt
     :alt: License
 
