@@ -7,8 +7,19 @@ g.parse("./oeo/oeo-full.owl")
 
 q_global = g.query("""
     SELECT DISTINCT ?s ?o
-    WHERE { ?s rdfs:subClassOf ?o
-    filter(!isBlank(?o))
+    WHERE {  ?s rdfs:subClassOf ?o
+             filter(!isBlank(?o))
+    }
+    """)
+    
+q_individuals = g.query("""
+    SELECT DISTINCT ?s ?o
+    WHERE { ?s rdf:type owl:NamedIndividual .
+            ?s rdf:type ?o .
+            MINUS {?s rdf:type ?x .
+                   ?x rdfs:subClassOf ?o .
+                   filter (?o != ?x) }
+            filter(!isBlank(?o))
     }
     """)
 
@@ -56,7 +67,7 @@ for row in q_main_description:
 graphLinks = []
 graphNodes = []
 
-for row in q_global:
+def add_to_graph(row):
     source = row.o.split('/')[-1]
     target = row.s.split('/')[-1]
 
@@ -93,6 +104,15 @@ for row in q_global:
                 })
     except:
         pass
+        
+
+
+for row in q_global:
+    add_to_graph(row)
+    
+for row in q_individuals:
+    add_to_graph(row)
+
 
 with open('./oeo_info.json', 'w') as f:
     json.dump({"nodes": graphNodes,
